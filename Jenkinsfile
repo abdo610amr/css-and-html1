@@ -21,10 +21,13 @@ pipeline {
             }
         }
 
-        stage('Deploy to Firebase Hosting') {
-            steps {
-                bat '"C:\\Users\\VICTUS\\AppData\\Roaming\\npm\\firebase.cmd" deploy --only hosting --project %FIREBASE_PROJECT%'
-            }
+       stage('Deploy to Firebase Hosting') {
+    steps {
+        dir('.') {
+            bat '"C:\\Users\\VICTUS\\AppData\\Roaming\\npm\\firebase.cmd" deploy --only hosting --project %FIREBASE_PROJECT%'
         }
+    }
+}
+
     }
 }
